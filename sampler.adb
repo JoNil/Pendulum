@@ -56,15 +56,15 @@ package body Sampler is
          Curr_Barrier := Get_Barrier;
          if Curr_Barrier /= Prev_Barrier then
             -- flank
-         Ada.Text_IO.Put_Line("1!");
             if Curr_Barrier then
-         Ada.Text_IO.Put_Line("2!");
+               Ada.Text_IO.Put_Line("There is a rising edge!");
                -- rising flank
                Circ_Buff(Circ_Buff_Index) := Clock;
                Circ_Buff_Index := (Circ_Buff_Index + 1) mod Circ_Buff_Length;
 
                if Full_Round then
-         Ada.Text_IO.Put_Line("3!");
+
+
                   -- now Circ_Buff_Index points at the oldest rising flank
                   T1 := Circ_Buff ((Circ_Buff_Index + 1) mod Circ_Buff_Length)
                     - Circ_Buff (Circ_Buff_Index);
@@ -91,7 +91,6 @@ package body Sampler is
                   null;
             end if;
          end if;
-         Ada.Text_IO.Put_Line("3!");
 
          if Circ_Buff_Index = 2 then
             Full_Round := True;
@@ -108,9 +107,9 @@ package body Sampler is
 
          Prev_Barrier := Curr_Barrier;
          Next := Next + Barrier_Sampler_Period;
-         Ada.Text_IO.Put_Line("ende!");
+
          delay until Next;
-         Ada.Text_IO.Put_Line("dannach!");
+
       end loop;
    end Barrier_Sampler;
 
