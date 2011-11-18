@@ -1,30 +1,25 @@
 package body Framebuffer is
-
-   protected Framebuffer_Data is
-      procedure Set_Pixel (X, Y : Integer, Value : Pixel_Type);
-      procedure Get_Pixel (X, Y : Integer) return Pixel_Type;
-
-   private
-
-   end Framebuffer_Data;
-
    protected body Framebuffer_Data is
 
+      procedure Set_Pixel (Row : Row_Type; Col : Column_Type; Value : Pixel_Type) is
+      begin
+         Buffer (Row, Col) := Value;
+      end Set_Pixel;
+
+      function Get_Pixel (Row : Row_Type; Col : Column_Type) return Pixel_Type is
+      begin
+         return Buffer (Row, Col);
+      end Get_Pixel;
+
+      function Get_Rows return Integer is
+      begin
+         return Integer(Row_Type'Last) + 1;
+      end Get_Rows;
+
+      function Get_Columns return Integer is
+      begin
+         return Integer(Column_Type'Last) + 1;
+      end Get_Columns;
+
    end Framebuffer_Data;
-
-   procedure Init (N : Integer) is
-   begin
-
-   end Init;
-
-   procedure Set_Pixel (X, Y : Integer, Value : Pixel_Type) is
-   begin
-
-   end Set_Pixel;
-
-   function Get_Pixel (X, Y : Integer) return Pixel_Type is
-   begin
-
-   end Get_Pixel;
-
 end Framebuffer;
