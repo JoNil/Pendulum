@@ -1,0 +1,172 @@
+V "GNAT Lib v4.4"
+A -gnatA
+P SS ZX
+R nnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnn
+
+U graphics_window_pkg.callbacks%b  graphics_window_pkg-callbacks.adb  0efb34f0 NE OO PK
+W gdk%s			gdk.ads			gdk.ali
+W gdk.event%s		gdk-event.adb		gdk-event.ali
+W gdk.rectangle%s	gdk-rectangle.adb	gdk-rectangle.ali
+W gdk.types%s		gdk-types.ads		gdk-types.ali
+W glib%s		glib.adb		glib.ali
+W graphics_window_pkg%s	graphics_window_pkg.adb	graphics_window_pkg.ali
+W gtk%s			gtk.ads			gtk.ali
+W gtk.accel_group%s	gtk-accel_group.adb	gtk-accel_group.ali
+W gtk.enums%s		gtk-enums.adb		gtk-enums.ali
+W gtk.main%s		gtk-main.adb		gtk-main.ali
+W gtk.object%s		gtk-object.adb		gtk-object.ali
+W gtk.style%s		gtk-style.adb		gtk-style.ali
+W gtk.widget%s		gtk-widget.adb		gtk-widget.ali
+W system%s		system.ads		system.ali
+
+U graphics_window_pkg.callbacks%s  graphics_window_pkg-callbacks.ads  61280748 EE NE OO PK
+W graphics_window_pkg%s	graphics_window_pkg.adb	graphics_window_pkg.ali
+W gtk%s			gtk.ads			gtk.ali
+W gtk.arguments%s	gtk-arguments.adb	gtk-arguments.ali
+W gtk.widget%s		gtk-widget.adb		gtk-widget.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-except.ads		20090409232307 b54b55de
+D a-finali.ads		20090409232307 9eaacebd
+D a-filico.ads		20090409232307 9299732a
+D a-stream.ads		20090409232307 34aca5be
+D a-tags.ads		20090409232307 bfa07446
+D a-unccon.ads		20070406091342 51e09df2
+D a-uncdea.ads		20070406091342 dc667e6d
+D gdk.ads		20091225112831 c70a781f
+D gdk-bitmap.ads	20091225112831 21c4d147
+D gdk-color.ads		20091225112831 25c4c95e
+D gdk-cursor.ads	20091225112831 f7eca646
+D gdk-display.ads	20091225112831 68455e23
+D gdk-drawable.ads	20091225112831 9933e9ff
+D gdk-event.ads		20091225112831 0620510f
+D gdk-font.ads		20091225112831 2070ac1f
+D gdk-gc.ads		20091225112831 70f52438
+D gdk-image.ads		20091225112831 73acaa39
+D gdk-pixbuf.ads	20091225112831 a1fbb3ff
+D gdk-pixmap.ads	20091225112831 8e3a393a
+D gdk-rectangle.ads	20091225112831 aa853dee
+D gdk-region.ads	20091225112831 254dc05c
+D gdk-rgb.ads		20091225112831 8731d030
+D gdk-types.ads		20091225112831 bde13b0a
+D gdk-visual.ads	20091225112831 62a3aa2f
+D gdk-window.ads	20091225112831 c3ee3269
+D glib.ads		20091225112831 54df1dc2
+D glib-error.ads	20091225112831 43d7524c
+D glib-generic_properties.ads  20091225112831 bc53e554
+D glib-glist.ads	20091225112831 86ff2c8b
+D glib-gslist.ads	20091225112831 172859be
+D glib-object.ads	20091225112831 d347b7c2
+D glib-properties.ads	20091225112831 e1aba241
+D glib-values.ads	20091225112831 233fe8b3
+D gnat.ads		20050905075125 96410e68
+D g-string.ads		20090409232307 8ea3f1a8
+D graphics_window_pkg.ads  20051003144238 8d604432
+D graphics_window_pkg-callbacks.ads  20051003144238 6b7cd961
+D graphics_window_pkg-callbacks.adb  20051003144238 18a41090
+D gtk.ads		20091225112832 a8a2c9c9
+D gtk-accel_group.ads	20091225112831 ba2d338c
+D gtk-adjustment.ads	20091225112831 d1313f1c
+D gtk-alignment.ads	20091225112831 cb689cc9
+D gtk-arguments.ads	20091225112831 d01b89d6
+D gtk-bin.ads		20091225112831 c4457b14
+D gtk-box.ads		20091225112831 9bd6db7d
+D gtk-button.ads	20091225112831 bd6f43c2
+D gtk-container.ads	20091225112831 6b71d4a5
+D gtk-drawing_area.ads	20091225112831 546235c8
+D gtk-enums.ads		20091225112831 f7bf3305
+D gtk-grange.ads	20091225112831 84dc1f5a
+D gtk-icon_factory.ads	20091225112831 4ce0f55f
+D gtk-image.ads		20091225112831 726737cc
+D gtk-label.ads		20091225112831 483e93c4
+D gtk-main.ads		20091225112831 aeac12a6
+D gtk-misc.ads		20091225112831 b40dd166
+D gtk-object.ads	20091225112831 c6e9fbbb
+D gtk-scrollbar.ads	20091225112831 b06768d8
+D gtk-scrolled_window.ads  20091225112831 2585c7c4
+D gtk-settings.ads	20091225112831 7c797c72
+D gtk-style.ads		20091225112831 5fa14439
+D gtk-viewport.ads	20091225112831 873b0bf7
+D gtk-widget.ads	20091225112832 572f13cd
+D gtk-window.ads	20091225112832 a7038f2c
+D gtkada.ads		20091225112832 1096f5e5
+D gtkada-types.ads	20091225112832 b2ab92a2
+D interfac.ads		20090409232307 a69cad5c
+D i-c.ads		20070406091342 bc3ef662
+D i-cstrin.ads		20090409232307 841d8a31
+D pango.ads		20091225112832 567c5424
+D pango-attributes.ads	20091225112832 21e060ad
+D pango-context.ads	20091225112832 dbda6b1f
+D pango-enums.ads	20091225112832 f87f8fab
+D pango-font.ads	20091225112832 4df735fa
+D pango-layout.ads	20091225112832 501b6bc2
+D pango-tabs.ads	20091225112832 06755cb4
+D system.ads		20110917192014 15e10948
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-finimp.ads		20090409232307 9449f4cb
+D s-finroo.ads		20090409232307 1408f9d1
+D s-parame.ads		20090409232307 f32e56e9
+D s-secsta.ads		20090409232307 7bae3621
+D s-soflin.ads		20090409232307 0c6fd39d
+D s-stache.ads		20090409232307 257b3be8
+D s-stalib.ads		20090409232307 52b793d5
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-stratt.ads		20090409232307 fef7c1da
+D s-string.ads		20090409232307 04f2ee70
+D s-traent.ads		20090409232307 bd5f2753
+D s-unstyp.ads		20090409232307 c0f9fae5
+D unchconv.ads		20070406091342 34860a55
+X 9 gdk.ads
+34K9*Gdk 60e8 39|3r6 3r21 4r6 4r21 10r6 10r28
+X 15 gdk-event.ads
+46K13*Event 794e14 39|3w10 3r25
+223P9*Gdk_Event<27|149P9> 39|38r14
+X 21 gdk-rectangle.ads
+27K13*Rectangle 68e18 39|10w10 10r32
+X 24 gdk-types.ads
+30K13*Types 248e14 39|4w10 4r25
+X 27 glib.ads
+37K9*Glib 397e9 39|2w6 2r16
+56M9*Guint<68|43M9>
+149P9*C_Proxy(146R9)
+X 37 graphics_window_pkg.ads
+10K9*Graphics_Window_Pkg 31e24 38|4r9 12r5 39|13r14 46r5
+X 38 graphics_window_pkg-callbacks.ads
+4K29*Callbacks 37|10k9 38|12l25 12e34 39|13b34 46l25 46t34
+5U14*On_Ok_Button_Clicked 6^7 39|21b14 28l8 28t28
+6p7 Object(47|71R9) 39|22b7
+8V13*On_Graphics_Window_Delete_Event{boolean} 9^7 10>7 39|34b13 44l8 44t39
+9p7 Object(63|70R9) 39|35b7
+10r7 Params{44|51R12} 39|36b7 38r37
+X 39 graphics_window_pkg-callbacks.adb
+38p7 Arg1{15|223P9}
+X 40 gtk.ads
+41K9*Gtk 38|1r6 2r6 2r22 10r16 39|5r6 5r27 6r6 6r22 7r6 7r21 8r6 8r21 9r6
+. 9r22 11r6 15r8 25r10 26r10 36r16 40r10 41r10 40|77e8
+X 41 gtk-accel_group.ads
+37K13*Accel_Group 39|5w10 5r31 41|192e20
+X 44 gtk-arguments.ads
+47K13*Arguments 38|1w10 10r20 39|15r12 36r20 44|93e18
+51R12*Gtk_Args{34|47R9} 38|10r30 39|36r30
+69V13*To_Event{15|223P9} 39|38r27
+X 47 gtk-button.ads
+71R9*Gtk_Button_Record<45|36R9> 38|6r23 39|22r23 47|381e69
+X 50 gtk-enums.ads
+39K13*Enums 39|7w10 7r25 50|555e14
+X 55 gtk-main.ads
+41K13*Main 39|11w10 25r14 26r14 40r14 41r14 55|507e13
+190V13*Main_Level{27|56M9} 39|25r19 40r19
+195U14*Main_Quit 39|26r19 41r19
+X 57 gtk-object.ads
+97K13*Object 39|6w10 6r26 57|296e15
+X 61 gtk-style.ads
+55K13*Style 39|8w10 8r25 61|834e14
+X 63 gtk-widget.ads
+69K13*Widget 38|2w10 2r26 39|9w10 9r26 63|2236e15
+70R9*Gtk_Widget_Record<57|99R9> 38|9r23 39|35r23 63|2131e75
+X 68 i-c.ads
+43M9*unsigned
+X 77 system.ads
+37K9*System 39|1w6 1r18 77|153e11
+

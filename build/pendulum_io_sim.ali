@@ -1,0 +1,245 @@
+V "GNAT Lib v4.4"
+A -gnatA
+P LC TF  SS ZX
+R nnnnnnvvnnnnnvnvnnvnnnnvnvnnvnnnnvnnnnnnnvnnnnnnvnnnnvnvnnvnvnnnv1nnnv1nv2nnnv1+nn
+
+U pendulum_io_sim%b	pendulum_io_sim.adb	06894ceb OO PK
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.real_time.delays%s  a-retide.adb		a-retide.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W graphics_windows%s	graphics_windows.adb	graphics_windows.ali  AD
+W system%s		system.ads		system.ali
+W system.exp_uns%s	s-expuns.adb		s-expuns.ali
+W system.finalization_implementation%s  s-finimp.adb  s-finimp.ali
+W system.finalization_root%s  s-finroo.adb	s-finroo.ali
+W system.parameters%s	s-parame.adb		s-parame.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.task_info%s	s-tasinf.adb		s-tasinf.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.entries%s  s-tpoben.adb  s-tpoben.ali
+W system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
+W system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
+W system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+U pendulum_io_sim%s	pendulum_io_sim.ads	57ab18e6 EE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W low_level_types%s	low_level_types.adb	low_level_types.ali
+
+D ada.ads		20070406091342 9c7dd3ea
+D a-except.ads		20090409232307 b54b55de
+D a-finali.ads		20090409232307 9eaacebd
+D a-filico.ads		20090409232307 9299732a
+D a-reatim.ads		20090409232307 7c462ab4
+D a-retide.ads		20090409232307 60afaac3
+D a-stream.ads		20090409232307 34aca5be
+D a-tags.ads		20090409232307 bfa07446
+D a-unccon.ads		20070406091342 51e09df2
+D a-uncdea.ads		20070406091342 dc667e6d
+D gdk.ads		20091225112831 c70a781f
+D gdk-bitmap.ads	20091225112831 21c4d147
+D gdk-color.ads		20091225112831 25c4c95e
+D gdk-cursor.ads	20091225112831 f7eca646
+D gdk-display.ads	20091225112831 68455e23
+D gdk-drawable.ads	20091225112831 9933e9ff
+D gdk-event.ads		20091225112831 0620510f
+D gdk-font.ads		20091225112831 2070ac1f
+D gdk-gc.ads		20091225112831 70f52438
+D gdk-image.ads		20091225112831 73acaa39
+D gdk-pixbuf.ads	20091225112831 a1fbb3ff
+D gdk-pixmap.ads	20091225112831 8e3a393a
+D gdk-rectangle.ads	20091225112831 aa853dee
+D gdk-region.ads	20091225112831 254dc05c
+D gdk-rgb.ads		20091225112831 8731d030
+D gdk-types.ads		20091225112831 bde13b0a
+D gdk-visual.ads	20091225112831 62a3aa2f
+D gdk-window.ads	20091225112831 c3ee3269
+D glib.ads		20091225112831 54df1dc2
+D glib-error.ads	20091225112831 43d7524c
+D glib-generic_properties.ads  20091225112831 bc53e554
+D glib-glist.ads	20091225112831 86ff2c8b
+D glib-gslist.ads	20091225112831 172859be
+D glib-object.ads	20091225112831 d347b7c2
+D glib-properties.ads	20091225112831 e1aba241
+D glib-values.ads	20091225112831 233fe8b3
+D gnat.ads		20050905075125 96410e68
+D g-string.ads		20090409232307 8ea3f1a8
+D graphics_window_pkg.ads  20051003144238 8d604432
+D graphics_windows.ads	20051003144238 787ac3a4
+D gtk.ads		20091225112832 a8a2c9c9
+D gtk-accel_group.ads	20091225112831 ba2d338c
+D gtk-adjustment.ads	20091225112831 d1313f1c
+D gtk-alignment.ads	20091225112831 cb689cc9
+D gtk-bin.ads		20091225112831 c4457b14
+D gtk-box.ads		20091225112831 9bd6db7d
+D gtk-button.ads	20091225112831 bd6f43c2
+D gtk-container.ads	20091225112831 6b71d4a5
+D gtk-drawing_area.ads	20091225112831 546235c8
+D gtk-enums.ads		20091225112831 f7bf3305
+D gtk-grange.ads	20091225112831 84dc1f5a
+D gtk-icon_factory.ads	20091225112831 4ce0f55f
+D gtk-image.ads		20091225112831 726737cc
+D gtk-label.ads		20091225112831 483e93c4
+D gtk-misc.ads		20091225112831 b40dd166
+D gtk-object.ads	20091225112831 c6e9fbbb
+D gtk-scrollbar.ads	20091225112831 b06768d8
+D gtk-scrolled_window.ads  20091225112831 2585c7c4
+D gtk-settings.ads	20091225112831 7c797c72
+D gtk-style.ads		20091225112831 5fa14439
+D gtk-viewport.ads	20091225112831 873b0bf7
+D gtk-widget.ads	20091225112832 572f13cd
+D gtk-window.ads	20091225112832 a7038f2c
+D gtkada.ads		20091225112832 1096f5e5
+D gtkada-types.ads	20091225112832 b2ab92a2
+D interfac.ads		20090409232307 a69cad5c
+D i-c.ads		20070406091342 bc3ef662
+D i-cstrin.ads		20090409232307 841d8a31
+D low_level_types.ads	20091106114956 5677d995
+D pango.ads		20091225112832 567c5424
+D pango-attributes.ads	20091225112832 21e060ad
+D pango-context.ads	20091225112832 dbda6b1f
+D pango-enums.ads	20091225112832 f87f8fab
+D pango-font.ads	20091225112832 4df735fa
+D pango-layout.ads	20091225112832 501b6bc2
+D pango-tabs.ads	20091225112832 06755cb4
+D pendulum_io_sim.ads	20091115185927 7d9aebc7
+D pendulum_io_sim.adb	20091115185927 16886dc0
+D system.ads		20110917192014 15e10948
+D s-atacco.ads		20090409232307 60789a20
+D s-exctab.ads		20090409232307 5c1c61ae
+D s-expuns.ads		20090409232307 f2f8b43d
+D s-finimp.ads		20090409232307 9449f4cb
+D s-finroo.ads		20090409232307 1408f9d1
+D s-linux.ads		20090409232307 ad070dbe
+D s-osinte.ads		20080408064315 b04c0edf
+D s-parame.ads		20090409232307 f32e56e9
+D s-secsta.ads		20090409232307 7bae3621
+D s-soflin.ads		20090409232307 0c6fd39d
+D s-stache.ads		20090409232307 257b3be8
+D s-stausa.ads		20090409232307 6ab7dd35
+D s-stalib.ads		20090409232307 52b793d5
+D s-stoele.ads		20090409232307 ed966df3
+D s-stoele.adb		20090409232307 e9998c78
+D s-stratt.ads		20090409232307 fef7c1da
+D s-string.ads		20090409232307 04f2ee70
+D s-tasinf.ads		20090409232307 268f0cd4
+D s-taspri.ads		20080408071349 5459bcd0
+D s-taprop.ads		20090409232307 25a7965c
+D s-taskin.ads		20090409232307 376ff2dd
+D s-taprob.ads		20090409232307 5e00115c
+D s-tpoben.ads		20090409232307 37be425d
+D s-tpobop.ads		20090409232307 ccd38b83
+D s-tasren.ads		20090409232307 5bda31d2
+D s-tassta.ads		20090409232307 71d2b71d
+D s-traent.ads		20090409232307 bd5f2753
+D s-unstyp.ads		20090409232307 c0f9fae5
+D unchconv.ads		20070406091342 34860a55
+X 1 ada.ads
+16K9*Ada 19e8 77|8r6 8r27
+X 5 a-reatim.ads
+39K13*Real_Time 139e18 77|8w10 8r31
+41O9*Time 78|108r20
+46O9*Time_Span 77|15r34 78|107r20
+53V13*Clock{41O9} 78|115r15
+55V13*"+"{41O9} 78|125r23
+71V13*"/"{46O9} 78|107r52
+85V13*Milliseconds{46O9} 77|15r47
+X 40 graphics_windows.ads
+47K9*Graphics_Windows 321e21 78|14w6 14r28
+62P9*Canvas_Type(305R9) 78|151r22
+98r4*Black{88R9} 78|173r31
+99r4*White{88R9} 78|170r35 171r33
+100r4*Red{88R9} 78|177r32 178r33
+108R9*Point_Type 110e14 78|156r17 158r17 160r17 162r17 186r16
+109i7*X{integer} 78|156r32 158r32 160r32 162r32 190m20
+109i9*Y{integer} 78|157r32 159r32 161r32 163r32 191m20
+149V13*Canvas{62P9} 78|265r23
+149i21 Width{integer} 78|265r31
+150i21 Height{integer} 78|266r31
+151s21 Title{string} 78|267r31
+154U14*Set_Colour 78|170r7
+160U14*Erase 78|172r7
+166U14*Set_Pen 78|173r7 177r7
+170U14*Set_Fill 78|171r7 178r7
+176U14*Set_Fill 78|179r7
+247U14*Draw_Line 78|174r7 175r7
+274U14*Draw_Circle 78|192r13
+297U14*Draw 78|176r7 199r7
+X 66 interfac.ads
+51M9*Unsigned_8
+X 69 low_level_types.ads
+3K9*Low_Level_Types 14e20 77|7w6 7r27
+6M9*Byte<66|51M9> 77|20r31 78|185r27 205r28 207r26 209r17 213r27 221r26 257r31
+X 77 pendulum_io_sim.ads
+10K9*Pendulum_Io_Sim 23l5 23e20 78|17b14 271l5 271t20
+15o4*Oscillation_Period{5|46O9} 78|107r33
+17V13*Get_Sync{boolean} 78|133b13 136l8 136t16
+18V13*Get_Barrier{boolean} 78|141b13 144l8 144t19
+20U14*Set_Leds 20>24 78|257b14 260l8 260t16
+20m24 B{69|6M9} 78|257b24 259r16
+21U14*Reset_Leds 78|249b14 252l8 252t18
+X 78 pendulum_io_sim.adb
+19W19 Boolean_Signal 19d35 26l8 26e22 28b19 41l8 41t22 43r20
+19i35 Ceiling{79|106I12} 20r23
+21U17 Set 29b17 32l11 32t14 119r68 119r80 121r68
+22U17 Reset 33b17 36l11 36t16 112r15 113r12 120r68 120r80 122r68
+23V16 Value{boolean} 37b16 40l11 40t16 135r19 143r22
+25b7 The_Value{boolean} 31r10 35r10 39r17
+43w4 Barrier{19W19} 112r7 119r60 120r60 121r60 122r60 143r14
+43w13 Sync{19W19} 113r7 119r75 120r75 135r14
+45i4 Text_Lines{integer} 47r38 160r52 162r52
+46i4 Blank_Lines{integer} 47r56 156r55 158r55 160r38 162r38
+47i4 Lines{integer} 48r30 49r42 71r35 74r39 107r59 119r42 120r42 121r42 122r42
+. 265r40
+48M9 Position_Type 53r29 55r39 58r13 64r29 72r20 74r20 78r39 185r40 196r15
+. 196r44 236r26
+49M9 Period_Position_Type 56r43 59r20 83r43 119r18 120r18 121r18 122r18
+51w14 Position 63b19 87l8 87t16 114r7 117r10 118r15 240r10
+53U17 Set 53>22 64b17 67l11 67t14 114r16
+53m22 P{48M9} 64b22 66r17
+54U17 Advance 68b17 77l11 77t18 117r19
+55Y13 Wait_Next_Change 55<31 78b13 82l11 82t27 240r19
+55m31 P{48M9} 80r10
+56V16 Get_Period_Position{49M9} 83b16 86l11 86t30 118r24
+58m7 Pos{48M9} 66r10 72r13 74r13 80r15
+59m7 Period_Pos{49M9} 70r10 70r24 71r21 72r34 74r60 85r17
+60b7 New_Pos{boolean} 76r10 78r59 81r10
+78m31 P{48M9}
+89t9 Signals_And_Position_Simulator 94b14 128l8 128t38 269r4
+91Y13 Start 111b14 269r35
+107o7 Delta_Time{5|46O9} 125r25
+108o7 Next{5|41O9} 115m7 125m10 125r18 126r22
+151p4 Pendulum_Canvas{40|62P9} 170m19 171m17 172r14 173m15 174r17 175r17
+. 176m13 177m16 178m17 179m17 192r26 199m13 265m4
+152i4 LED_Radius{integer} 156r70 158r70 159r59 160r67 162r67 163r61 190r44
+. 190r93 191r42 191r80 192r51 265r51 266r48
+153i4 Line_Separation{integer} 156r37 156r83 158r37 158r83 160r80 162r80
+. 190r26 190r73 265r64 265r85
+154i4 LED_Separation{integer} 159r37 159r72 163r37 163r74 191r25 191r61 266r61
+. 266r79
+156r4 Left_From{40|108R9} 175r33
+158r4 Left_To{40|108R9} 175r43
+160r4 Right_From{40|108R9} 174r33
+162r4 Right_To{40|108R9} 174r44
+168U14 Clear_Canvas 168b14 180l8 180t20 197r10 268r4
+185U14 Draw 185b14 185>20 185>33 200l8 200t12 241r10
+185m20 B{69|6M9} 189r15
+185m33 P{48M9} 190r67 196r11 196r40
+186r7 Center{40|108R9} 190m13 191m13 192r43
+188i11 I{integer} 189r25 191r56
+203w13 Leds 212b18 225l7 225t11 241r15 251r7 259r7
+205U16 Set 205>21 213b16 216l10 216t13 259r12
+205m21 B{69|6M9} 213b21 215r21
+206U16 Reset 217b16 220l10 220t15 251r12
+207V15 Get{69|6M9} 221b15 224l10 224t13 241r20
+209m6 The_Leds{69|6M9} 215r9 219r9 223r16
+228t9 Leds_Simulator 235b14 243l8 243t22 270r4
+230Y13 Start 238b14 270r19
+236m7 Current_Position{48M9} 240m36 241r24
+X 79 system.ads
+37K9*System 78|13w6 13r28 79|153e11
+105I12*Any_Priority{integer}
+106I12*Priority{105I12} 78|19r45 43r35 52r24 90r23 204r23 229r23
+
