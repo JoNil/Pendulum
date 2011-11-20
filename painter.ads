@@ -5,8 +5,8 @@ package Painter is
    type Direction_Type is (Forward, Backward);
    task Painter_Task is
       pragma Priority (Priority'Last - 1);
-      entry Begin_Sweep (Most_Left_Time : Time;
-                         Period         : Time_Span;
-                         Direction      : Direction_Type);
+      entry Begin_Sweep (Edge_Time : Time;
+                         Period    : Time_Span;
+                         Direction : Direction_Type);
    end Painter_Task;
 end Painter;
