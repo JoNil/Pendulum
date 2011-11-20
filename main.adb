@@ -1,6 +1,7 @@
 pragma Task_Dispatching_Policy(FIFO_Within_Priorities);
 pragma Locking_Policy(Ceiling_Locking);
 
+with Tools;           use Tools;
 with Ada.Text_IO;     use Ada.Text_IO;
 with Ada.Real_Time;   use Ada.Real_Time;
 with Low_Level_Types; use Low_Level_Types;
@@ -10,16 +11,43 @@ with Framebuffer;
 
 procedure Main is
    Left_Time : Time;
+   currT : Time;
+   curr_Want, prev_Want : Boolean := False;
 begin
    loop
       Left_Time := Sampler_Data.Get_Most_Left_Time;
 
-      if abs(Clock - Left_Time) < Milliseconds(1405) then
+      currT := Clock;
+
+     -- Put_Line("current!");
+     -- Print_Time(currT);
+     -- Put_Line("left!");
+     -- Print_Time(Left_Time);
+
+      --      Put_Line(
+
+
+      if currT - Left_Time < Milliseconds(1405) then
+         Put_Line("Y");
          Set_Leds (255);
+         -- curr_Want := True;
       else
+         --Put_Line("N");
          Reset_Leds;
+         --curr_Want := True;
       end if;
-      delay 0.1;
+
+--        if( curr_Want /= prev_Want ) then
+--           if( curr_Want ) then
+--              Set_Leds(255);
+--           else
+--              Reset_Leds;
+--           end if;
+--
+--        end if;
+--        prev_Want:=curr_Want;
+
+      delay 0.005;
    end loop;
 
 end Main;

@@ -1,6 +1,7 @@
 with Pendulum_Io_Sim; use Pendulum_Io_Sim;
 with System; use System;
 with Ada.Text_IO;
+with Tools; use Tools;
 
 package body Sampler is
 
@@ -31,7 +32,7 @@ package body Sampler is
    end Barrier_Sampler;
 
    task body Barrier_Sampler is
-      Barrier_Sampler_Period : constant Time_Span := Milliseconds (10);
+      Barrier_Sampler_Period : constant Time_Span := Milliseconds (20);
       Next                   : Time := Clock;
 
       Circ_Buff_Length : constant Integer := 3;
@@ -45,26 +46,26 @@ package body Sampler is
       Curr_Barrier           : Boolean := False;
 
       Full_Round             : Boolean := False;
-      T1, T2, Period               : Time_Span;
-      Most_Left              : Time;
+      T1, T2, Period               : Time_Span := Milliseconds(0);
+      Most_Left              : Time := Clock;
 
-      SC : Seconds_Count;
-      TS : Time_Span;
+      currT : Time;
    begin
 
       loop
+         currT := Clock;
+--         Ada.Text_IO.Put_Line("in loop");
          Curr_Barrier := Get_Barrier;
          if Curr_Barrier /= Prev_Barrier then
             -- flank
+
             if Curr_Barrier then
                Ada.Text_IO.Put_Line("There is a rising edge!");
                -- rising flank
-               Circ_Buff(Circ_Buff_Index) := Clock;
+               Circ_Buff(Circ_Buff_Index) := currT;
                Circ_Buff_Index := (Circ_Buff_Index + 1) mod Circ_Buff_Length;
-
+--
                if Full_Round then
-
-
                   -- now Circ_Buff_Index points at the oldest rising flank
                   T1 := Circ_Buff ((Circ_Buff_Index + 1) mod Circ_Buff_Length)
                     - Circ_Buff (Circ_Buff_Index);
@@ -79,11 +80,15 @@ package body Sampler is
                                              mod Circ_Buff_Length) + T2 / 2;
                   end if;
 
+                  Sampler_Data.Set_Most_Left_Time (Most_Left);
+
                   Period := Circ_Buff((Circ_Buff_Index + 2) mod Circ_Buff_Length) - Circ_Buff(Circ_Buff_Index);
+                  Sampler_Data.Set_Period (Period);
 
-                  Split(Most_Left, SC, TS);
+                  Ada.Text_IO.Put_Line("Inloop Most left:");
+                  Print_Time(Most_Left);
+                  Ada.Text_IO.Put_Line("Inloop Period:\n" & To_Duration(Period)'Img);
 
-                  Ada.Text_IO.Put_Line("most left: " & SC'Img & " period: " & To_Duration(Period)'Img);
                end if;
 
             else
@@ -96,12 +101,16 @@ package body Sampler is
             Full_Round := True;
          end if;
 
-         if Most_Left + Period > Clock then
-         	Most_Left := Most_Left + Period;
+         if Most_Left + Period < currT then
+            Most_Left := Most_Left + Period;
+            --Ada.Text_IO.Put_Line("OKAY BUT WHY!");
+            Sampler_Data.Set_Most_Left_Time (Most_Left);
          end if;
 
-         Sampler_Data.Set_Most_Left_Time (Most_Left);
-         Sampler_Data.Set_Period (Period);
+--         Split(Sampler_Data.Get_Most_Left_Time, SC, TS);
+
+--         Ada.Text_IO.Put_Line("most left in Sampler_Data: " & SC'Img);
+
 
 
 
