@@ -1,3 +1,2 @@
-# Ada build files
-build/*
+# Ada project files
 *.gpr
