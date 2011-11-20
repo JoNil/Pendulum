@@ -12,7 +12,8 @@ package Framebuffer is
 
    protected Framebuffer_Data is
       procedure Clear (Color : Color_Type);
-      procedure Swap_Buffers;
+      entry Swap_Buffer;
+      procedure Handel_Swap_Buffer; -- Should not be used to application code
       procedure Draw_Char (Pos : Integer; Char : Character;
                            Char_Color       : Color_Type;
                            Background_Color : Color_Type);
@@ -26,6 +27,7 @@ package Framebuffer is
       function Get_Rows return Integer;
       function Get_Columns return Integer;
    private
+      Swap_Requested  : Boolean := False;
       Buffer_Selector : Buffer_Selector_Type := 0;
       Buffer1         : Buffer_Type;
       Buffer2         : Buffer_Type;

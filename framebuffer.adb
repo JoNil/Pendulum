@@ -17,10 +17,18 @@ package body Framebuffer is
          end loop;
       end Clear;
 
-      procedure Swap_Buffers is
+      entry Swap_Buffer when not Swap_Requested is
       begin
-         Buffer_Selector := Buffer_Selector + 1;
-      end Swap_Buffers;
+         Swap_Requested := True;
+      end Swap_Buffer;
+
+      procedure Handel_Swap_Buffer is
+      begin
+         if Swap_Requested then
+            Buffer_Selector := Buffer_Selector + 1;
+         end if;
+         Swap_Requested := False;
+      end Handel_Swap_Buffer;
 
       procedure Draw_Char (Pos : Integer; Char : Character;
                            Char_Color       : Color_Type;

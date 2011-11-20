@@ -20,8 +20,9 @@ package body Painter is
         accept Begin_Sweep (Edge_Time : Time;
                             Period    : Time_Span;
                             Direction : Direction_Type) do
-            Sweep_Start := Clock;
-            Sweep_Time  := Period / 2 - 2 * (Sweep_Start - Edge_Time);
+            Sweep_Start     := Clock;
+            Sweep_Time      := Period / 2 - 2 * (Sweep_Start - Edge_Time);
+            Sweep_Direction := Direction;
          end Begin_Sweep;
 
          Sweep_Columne := 0;
