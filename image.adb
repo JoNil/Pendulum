@@ -1,8 +1,6 @@
 package body Image is
-
-
-   -- TODO: Implement Load
-   -- TODO: Make shure images
+-- TODO: Implement Load
+-- TODO: Make shure images
    procedure Load (Filename : String; Image : in out Image_Type) is
    begin
       Image.Width  := 1;

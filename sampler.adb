@@ -49,11 +49,11 @@ package body Sampler is
       T1, T2, Period         : Time_Span := Milliseconds (0);
       Most_Left              : Time := Clock;
 
-      currT                  : Time;
+      CurrT                  : Time;
    begin
 
       loop
-         currT := Clock;
+         CurrT := Clock;
          -- Ada.Text_IO.Put_Line("in loop");
          Curr_Barrier := Get_Barrier;
          if Curr_Barrier /= Prev_Barrier then
@@ -63,7 +63,7 @@ package body Sampler is
                Ada.Text_IO.Put_Line ("There is a rising edge!");
                Print_Time (Clock);
                -- rising flank
-               Circ_Buff (Circ_Buff_Index) := currT;
+               Circ_Buff (Circ_Buff_Index) := CurrT;
                Circ_Buff_Index := (Circ_Buff_Index + 1) mod Circ_Buff_Length;
                --
                if Full_Round then
@@ -94,7 +94,6 @@ package body Sampler is
                                         To_Duration (Period)'Img);
 
                end if;
-
             else
                -- falling flank
                Ada.Text_IO.Put_Line ("There is a falling edge!");
@@ -106,7 +105,7 @@ package body Sampler is
             Full_Round := True;
          end if;
 
-         if Most_Left + Period < currT then
+         if Most_Left + Period < CurrT then
             Most_Left := Most_Left + Period;
             -- Ada.Text_IO.Put_Line("OKAY BUT WHY!");
             Sampler_Data.Set_Most_Left_Time (Most_Left);
@@ -115,9 +114,6 @@ package body Sampler is
          -- Split(Sampler_Data.Get_Most_Left_Time, SC, TS);
 
          -- Ada.Text_IO.Put_Line("most left in Sampler_Data: " & SC'Img);
-
-
-
 
          Prev_Barrier := Curr_Barrier;
          Next := Next + Barrier_Sampler_Period;

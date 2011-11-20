@@ -12,7 +12,7 @@ package Pendulum_Io_Sim is
    -- This constant defines the simulated pendulum period.
    -- The actual XP3 period is 114 ms
    -- Keep this constant above 2 seconds
-   Oscillation_Period : constant Time_Span := Milliseconds(3000);
+   Oscillation_Period : constant Time_Span := Milliseconds (3000);
 
    function Get_Sync return Boolean;    -- Returns True if Sync=1; False otherwise
    function Get_Barrier return Boolean; -- Returns True if Barrier=1; False otherwise

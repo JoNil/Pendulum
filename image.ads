@@ -19,5 +19,5 @@ package Image is
 
 private
    procedure Free_Image_Data is new Ada.Unchecked_Deallocation
-      (Object => Image_Data_Type, Name => Image_Data_Type_Access);
+     (Object => Image_Data_Type, Name => Image_Data_Type_Access);
 end Image;

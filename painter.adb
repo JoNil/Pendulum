@@ -17,9 +17,9 @@ package body Painter is
 
    begin
       loop
-        accept Begin_Sweep (Edge_Time : Time;
-                            Period    : Time_Span;
-                            Direction : Direction_Type) do
+         accept Begin_Sweep (Edge_Time : Time;
+                             Period    : Time_Span;
+                             Direction : Direction_Type) do
             Sweep_Start     := Clock;
             Sweep_Time      := Period / 2 - 2 * (Sweep_Start - Edge_Time);
             Sweep_Direction := Direction;
@@ -32,7 +32,7 @@ package body Painter is
 
          while Clock < Sweep_End loop
 
-            Sweep_byte := 16#0#;
+            Sweep_Byte := 16#0#;
 
             for Sweep_Row in Row_Type'Range loop
                if Sweep_Direction = Forward then

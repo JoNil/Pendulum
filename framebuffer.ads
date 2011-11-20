@@ -14,10 +14,10 @@ package Framebuffer is
       procedure Clear (Color : Color_Type);
       entry Swap_Buffer;
       procedure Handel_Swap_Buffer; -- Should not be used to application code
-      procedure Draw_Char (Pos : Integer; Char : Character;
+      procedure Draw_Char (Pos              : Integer; Char : Character;
                            Char_Color       : Color_Type;
                            Background_Color : Color_Type);
-      procedure Draw_String (Pos : Integer; Str : String;
+      procedure Draw_String (Pos              : Integer; Str : String;
                              Char_Color       : Color_Type;
                              Background_Color : Color_Type);
       procedure Draw_Image (X : Integer; Y : Integer; Img : Image_Type);

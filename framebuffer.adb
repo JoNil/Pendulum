@@ -30,7 +30,7 @@ package body Framebuffer is
          Swap_Requested := False;
       end Handel_Swap_Buffer;
 
-      procedure Draw_Char (Pos : Integer; Char : Character;
+      procedure Draw_Char (Pos              : Integer; Char : Character;
                            Char_Color       : Color_Type;
                            Background_Color : Color_Type) is
          Pattern     : array (Character_Slice_Range_Type) of Byte;
@@ -62,7 +62,7 @@ package body Framebuffer is
          end loop;
       end Draw_Char;
 
-      procedure Draw_String (Pos : Integer; Str : String;
+      procedure Draw_String (Pos              : Integer; Str : String;
                              Char_Color       : Color_Type;
                              Background_Color : Color_Type) is
          Current_Pos : Integer := Pos;
