@@ -7,7 +7,8 @@ with Ada.Real_Time;   use Ada.Real_Time;
 with Low_Level_Types; use Low_Level_Types;
 with Sampler;         use Sampler;
 with Pendulum_Io_Sim; use Pendulum_Io_Sim;
-with Framebuffer;
+with Framebuffer;     use Framebuffer;
+with Painter;         use Painter;
 
 procedure Main is
    Left_Time : Time;
@@ -28,12 +29,22 @@ begin
 
 
       if currT - Left_Time < Milliseconds(1405) then
-         Put_Line("Y");
-         Set_Leds (255);
+
+         Framebuffer_Data.Clear (0.0);
+         Framebuffer_Data.Draw_String (0, "Jon!");
+         Framebuffer_Data.Swap_Buffers;
+
+         Painter_Task.Begin_Sweep (Sampler_Data.Get_Most_Left_Time,
+                                   Sampler_Data.Get_Period,
+                                   Forward);
+
+
+         --Put_Line("Y");
+         --Set_Leds (255);
          -- curr_Want := True;
-      else
+      --else
          --Put_Line("N");
-         Reset_Leds;
+         --Reset_Leds;
          --curr_Want := True;
       end if;
 

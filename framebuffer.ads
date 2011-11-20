@@ -9,6 +9,7 @@ package Framebuffer is
       procedure Clear (Value : Pixel_Type);
       procedure Swap_Buffers;
       procedure Draw_Char (Pos : Column_Type; Char : Character);
+      procedure Draw_String (Pos : Column_Type; Str : String);
       procedure Set_Pixel (Row : Row_Type;
                            Col : Column_Type; Value : Pixel_Type);
       function Get_Pixel (Row : Row_Type;

@@ -51,6 +51,16 @@ package body Framebuffer is
          end loop;
       end Draw_Char;
 
+      procedure Draw_String (Pos : Column_Type; Str : String) is
+         Current_Pos : Column_Type := Pos;
+      begin
+         for I in Str'Range loop
+            Draw_Char (Current_Pos, Str (I));
+            exit when Current_Pos > Column_Type'Last - 5;
+            Current_Pos := Current_Pos + 5;
+         end loop;
+      end Draw_String;
+
       procedure Set_Pixel (Row : Row_Type;
                            Col : Column_Type; Value : Pixel_Type) is
       begin
