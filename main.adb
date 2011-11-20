@@ -12,52 +12,41 @@ with Painter;         use Painter;
 
 procedure Main is
    Left_Time : Time;
-   currT : Time;
-   curr_Want, prev_Want : Boolean := False;
+   Stage : Integer;
+   Curr_T : Time := Clock;
+   Time_Since : Time_Span;
 begin
    loop
       Left_Time := Sampler_Data.Get_Most_Left_Time;
 
-      currT := Clock;
+      Curr_T := Clock;
 
-     -- Put_Line("current!");
-     -- Print_Time(currT);
-     -- Put_Line("left!");
-     -- Print_Time(Left_Time);
+      Time_Since := Curr_T - Left_Time;
 
-      --      Put_Line(
-
-
-      if currT - Left_Time < Milliseconds(1405) then
+      if Time_Since < Milliseconds(50) then
+         Stage := 1;
+      elsif Time_Since > Milliseconds(50) and stage = 1 then
 
          Framebuffer_Data.Clear (0.0);
-         Framebuffer_Data.Draw_String (0, "Jon!");
+         Framebuffer_Data.Draw_String (0, "Jon!"); -- this should be somewhere else
          Framebuffer_Data.Swap_Buffers;
-
+         Stage := 2;
+      elsif stage = 2 and Time_Since > Milliseconds(200) then
          Painter_Task.Begin_Sweep (Sampler_Data.Get_Most_Left_Time,
                                    Sampler_Data.Get_Period,
                                    Forward);
-
-
-         --Put_Line("Y");
-         --Set_Leds (255);
-         -- curr_Want := True;
-      --else
-         --Put_Line("N");
-         --Reset_Leds;
-         --curr_Want := True;
+         Stage := 3;
+      elsif stage = 3 and Time_Since > Milliseconds(1500) then
+         Framebuffer_Data.Clear (0.0);
+         Framebuffer_Data.Draw_String (0, "Jon!"); -- this should be somewhere else
+         Framebuffer_Data.Swap_Buffers;
+         Stage := 4;
+      elsif stage = 4 and Time_Since > Milliseconds(1700) then
+         Painter_Task.Begin_Sweep (Sampler_Data.Get_Most_Left_Time+Sampler_Data.Get_Period/2,
+                                   Sampler_Data.Get_Period,
+                                   Forward);
+         Stage := 0;
       end if;
-
---        if( curr_Want /= prev_Want ) then
---           if( curr_Want ) then
---              Set_Leds(255);
---           else
---              Reset_Leds;
---           end if;
---
---        end if;
---        prev_Want:=curr_Want;
-
       delay 0.005;
    end loop;
 
