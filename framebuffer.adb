@@ -51,7 +51,8 @@ package body Framebuffer is
          end loop;
       end Draw_Char;
 
-      procedure Set_Pixel (Row : Row_Type; Col : Column_Type; Value : Pixel_Type) is
+      procedure Set_Pixel (Row : Row_Type;
+                           Col : Column_Type; Value : Pixel_Type) is
       begin
          if Buffer_Selector = 0 then
             Buffer1 (Row, Col) := Value;
@@ -60,7 +61,8 @@ package body Framebuffer is
          end if;
       end Set_Pixel;
 
-      function Get_Pixel (Row : Row_Type; Col : Column_Type) return Pixel_Type is
+      function Get_Pixel (Row : Row_Type;
+                          Col : Column_Type) return Pixel_Type is
       begin
          if Buffer_Selector = 0 then
             return Buffer1 (Row, Col);
@@ -69,7 +71,8 @@ package body Framebuffer is
          end if;
       end Get_Pixel;
 
-      function Get_Back_Pixel (Row : Row_Type; Col : Column_Type) return Pixel_Type is
+      function Get_Back_Pixel (Row : Row_Type;
+                               Col : Column_Type) return Pixel_Type is
       begin
          if Buffer_Selector = 0 then
             return Buffer2 (Row, Col);

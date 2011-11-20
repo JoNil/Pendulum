@@ -9,14 +9,17 @@ package Framebuffer is
       procedure Clear (Value : Pixel_Type);
       procedure Swap_Buffers;
       procedure Draw_Char (Pos : Column_Type; Char : Character);
-      procedure Set_Pixel (Row : Row_Type; Col : Column_Type; Value : Pixel_Type);
-      function Get_Pixel (Row : Row_Type; Col : Column_Type) return Pixel_Type;
-      function Get_Back_Pixel (Row : Row_Type; Col : Column_Type) return Pixel_Type;
+      procedure Set_Pixel (Row : Row_Type;
+                           Col : Column_Type; Value : Pixel_Type);
+      function Get_Pixel (Row : Row_Type;
+                          Col : Column_Type) return Pixel_Type;
+      function Get_Back_Pixel (Row : Row_Type;
+                               Col : Column_Type) return Pixel_Type;
       function Get_Rows return Integer;
       function Get_Columns return Integer;
    private
       Buffer_Selector : Buffer_Selector_Type := 0;
-      Buffer1 : Buffer_Type;
-      Buffer2 : Buffer_Type;
+      Buffer1         : Buffer_Type;
+      Buffer2         : Buffer_Type;
    end Framebuffer_Data;
 end Framebuffer;
