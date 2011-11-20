@@ -32,7 +32,7 @@ package body Sampler is
    end Barrier_Sampler;
 
    task body Barrier_Sampler is
-      Barrier_Sampler_Period : constant Time_Span := Milliseconds (20);
+      Barrier_Sampler_Period : constant Time_Span := Milliseconds (50);
       Next                   : Time := Clock;
 
       Circ_Buff_Length : constant Integer := 3;
@@ -61,6 +61,7 @@ package body Sampler is
 
             if Curr_Barrier then
                Ada.Text_IO.Put_Line("There is a rising edge!");
+               Print_Time(Clock);
                -- rising flank
                Circ_Buff(Circ_Buff_Index) := currT;
                Circ_Buff_Index := (Circ_Buff_Index + 1) mod Circ_Buff_Length;
@@ -93,7 +94,9 @@ package body Sampler is
 
             else
                   -- falling flank
-                  null;
+
+               Ada.Text_IO.Put_Line("There is a falling edge!");
+               Print_Time(Clock);
             end if;
          end if;
 
