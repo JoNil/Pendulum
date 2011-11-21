@@ -15,41 +15,39 @@ procedure Main is
    Left_Time  : Time;
    Stage      : Integer;
    Curr_T     : Time := Clock;
+   Curr_Period : Time_Span;
    Time_Since : Time_Span;
+   Offset     : constant Time_Span := Milliseconds (300);
 begin
 
-   Framebuffer_Data.Clear (0.0);
-   Framebuffer_Data.Draw_String (0, "Max & Jonathan!", Red, Black);
+   Framebuffer_Data.Clear (1.0);
+   --Framebuffer_Data.Draw_String (0, "Max & Jonathan!", Red, Black);
    Framebuffer_Data.Swap_Buffer;
 
    loop
       Left_Time := Sampler_Data.Get_Most_Left_Time;
 
       Curr_T := Clock;
+      Curr_Period := Sampler_Data.Get_Period;
 
       Time_Since := Curr_T - Left_Time;
 
       if Time_Since < Milliseconds (50) then
          Stage := 1;
-      elsif Time_Since > Milliseconds (50) and Stage = 1 then
+      elsif Stage = 1 and Time_Since > Offset then
          Framebuffer_Data.Handel_Swap_Buffer;
-         Stage := 2;
-      elsif Stage = 2 and Time_Since > Milliseconds (200) then
-         Painter_Task.Begin_Sweep (Sampler_Data.Get_Most_Left_Time,
-                                   Sampler_Data.Get_Period,
+         Painter_Task.Begin_Sweep (Left_Time,
+                                   Curr_Period,
                                    Forward);
-         Stage := 3;
-      elsif Stage = 3 and Time_Since > Milliseconds (1500) then
+         Stage := 2;
+      elsif Stage = 2 and Time_Since > Curr_Period / 2 + Offset then
          Framebuffer_Data.Handel_Swap_Buffer;
-         Stage := 4;
-      elsif Stage = 4 and Time_Since > Milliseconds (1700) then
-         Painter_Task.Begin_Sweep (Sampler_Data.Get_Most_Left_Time +
-                                     Sampler_Data.Get_Period / 2,
-                                   Sampler_Data.Get_Period,
+         Painter_Task.Begin_Sweep (Left_Time + Curr_Period / 2,
+                                   Curr_Period,
                                    Backward);
          Stage := 0;
       end if;
-      delay 0.005;
+      delay 0.001;
    end loop;
 
 end Main;

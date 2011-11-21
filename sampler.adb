@@ -60,8 +60,8 @@ package body Sampler is
             -- flank
 
             if Curr_Barrier then
-               Ada.Text_IO.Put_Line ("There is a rising edge!");
-               Print_Time (Clock);
+--                 Ada.Text_IO.Put_Line ("There is a rising edge!");
+--                 Print_Time (Clock);
                -- rising flank
                Circ_Buff (Circ_Buff_Index) := CurrT;
                Circ_Buff_Index := (Circ_Buff_Index + 1) mod Circ_Buff_Length;
@@ -88,16 +88,17 @@ package body Sampler is
                     - Circ_Buff (Circ_Buff_Index);
                   Sampler_Data.Set_Period (Period);
 
-                  Ada.Text_IO.Put_Line ("Inloop Most left:");
-                  Print_Time (Most_Left);
-                  Ada.Text_IO.Put_Line ("Inloop Period:\n" &
-                                        To_Duration (Period)'Img);
+--                    Ada.Text_IO.Put_Line ("Inloop Most left:");
+--                    Print_Time (Most_Left);
+--                    Ada.Text_IO.Put_Line ("Inloop Period:\n" &
+--                                          To_Duration (Period)'Img);
 
                end if;
             else
                -- falling flank
-               Ada.Text_IO.Put_Line ("There is a falling edge!");
-               Print_Time (Clock);
+--                 Ada.Text_IO.Put_Line ("There is a falling edge!");
+--                 Print_Time (Clock);
+               null;
             end if;
          end if;
 
