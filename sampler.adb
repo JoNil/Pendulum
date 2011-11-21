@@ -35,70 +35,58 @@ package body Sampler is
       Barrier_Sampler_Period : constant Time_Span := Milliseconds (50);
       Next                   : Time := Clock;
 
-      Circ_Buff_Length       : constant Integer := 3;
+      Circ_Buff_Length : constant Integer := 3;
       type Circ_Buff_Index_Type is new Integer;
-      type Circ_Buff_Type is array (0 .. 2) of Time;
-
+      type Circ_Buff_Type is array (0..2) of Time;
 
       Circ_Buff_Index        : Integer := 0;
       Circ_Buff              : Circ_Buff_Type;
+      Circ_Buff_Fall         : Circ_Buff_Type := (0..2 => Clock);
       Prev_Barrier           : Boolean := False;
       Curr_Barrier           : Boolean := False;
 
       Full_Round             : Boolean := False;
-      T1, T2, Period         : Time_Span := Milliseconds (0);
+      T1, T2, Period               : Time_Span := Milliseconds(0);
       Most_Left              : Time := Clock;
-
-      CurrT                  : Time;
+      currT : Time;
    begin
-
       loop
-         CurrT := Clock;
-         -- Ada.Text_IO.Put_Line("in loop");
+         currT := Clock;
          Curr_Barrier := Get_Barrier;
          if Curr_Barrier /= Prev_Barrier then
             -- flank
-
             if Curr_Barrier then
---                 Ada.Text_IO.Put_Line ("There is a rising edge!");
---                 Print_Time (Clock);
                -- rising flank
-               Circ_Buff (Circ_Buff_Index) := CurrT;
+               Circ_Buff(Circ_Buff_Index) := currT;
                Circ_Buff_Index := (Circ_Buff_Index + 1) mod Circ_Buff_Length;
-               --
+
                if Full_Round then
                   -- now Circ_Buff_Index points at the oldest rising flank
+                  -- also in the Circ_Buff_Fall the pointer points at
+                  -- the oldest falling flank
+
                   T1 := Circ_Buff ((Circ_Buff_Index + 1) mod Circ_Buff_Length)
-                    - Circ_Buff (Circ_Buff_Index);
+                    - Circ_Buff_Fall ((Circ_Buff_Index + 1) mod Circ_Buff_Length);
                   T2 := Circ_Buff ((Circ_Buff_Index + 2) mod Circ_Buff_Length)
-                    - Circ_Buff ( (Circ_Buff_Index + 1) mod Circ_Buff_Length);
+                    - Circ_Buff_Fall ( (Circ_Buff_Index + 2) mod Circ_Buff_Length);
                   if T1 < T2 then
                      -- beginning is between A and B
-                     Most_Left := Circ_Buff (Circ_Buff_Index) + T1 / 2;
+                     Most_Left := Circ_Buff_Fall((Circ_Buff_Index + 1) mod Circ_Buff_Length) + T1 / 2;
                   else
                      -- beginning is between B and C
-                     Most_Left := Circ_Buff ((Circ_Buff_Index + 1)
+                     Most_Left := Circ_Buff_Fall ((Circ_Buff_Index + 2)
                                              mod Circ_Buff_Length) + T2 / 2;
                   end if;
 
                   Sampler_Data.Set_Most_Left_Time (Most_Left);
 
-                  Period := Circ_Buff ((Circ_Buff_Index + 2)
-                                       mod Circ_Buff_Length)
-                    - Circ_Buff (Circ_Buff_Index);
+                  Period := Circ_Buff((Circ_Buff_Index + 2) mod Circ_Buff_Length) - Circ_Buff(Circ_Buff_Index);
                   Sampler_Data.Set_Period (Period);
-
---                    Ada.Text_IO.Put_Line ("Inloop Most left:");
---                    Print_Time (Most_Left);
---                    Ada.Text_IO.Put_Line ("Inloop Period:\n" &
---                                          To_Duration (Period)'Img);
-
                end if;
+
             else
                -- falling flank
---                 Ada.Text_IO.Put_Line ("There is a falling edge!");
---                 Print_Time (Clock);
-               null;
+               Circ_Buff_Fall(Circ_Buff_Index) := currT;
             end if;
          end if;
 
@@ -106,15 +94,10 @@ package body Sampler is
             Full_Round := True;
          end if;
 
-         if Most_Left + Period < CurrT then
+         if Most_Left + Period < currT then
             Most_Left := Most_Left + Period;
-            -- Ada.Text_IO.Put_Line("OKAY BUT WHY!");
             Sampler_Data.Set_Most_Left_Time (Most_Left);
          end if;
-
-         -- Split(Sampler_Data.Get_Most_Left_Time, SC, TS);
-
-         -- Ada.Text_IO.Put_Line("most left in Sampler_Data: " & SC'Img);
 
          Prev_Barrier := Curr_Barrier;
          Next := Next + Barrier_Sampler_Period;
