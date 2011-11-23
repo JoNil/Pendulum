@@ -1,6 +1,5 @@
 with Pendulum_Io_Sim; use Pendulum_Io_Sim;
 with System; use System;
-with Ada.Text_IO;
 with Tools; use Tools;
 
 package body Sampler is
@@ -28,11 +27,11 @@ package body Sampler is
    end Sampler_Data;
 
    task Barrier_Sampler is
-      pragma Priority (Priority'Last - 1);
+      pragma Priority (Priority'Last - 2);
    end Barrier_Sampler;
 
    task body Barrier_Sampler is
-      Barrier_Sampler_Period : constant Time_Span := Milliseconds (50);
+      Barrier_Sampler_Period : constant Time_Span := Milliseconds (1);
       Next                   : Time := Clock;
 
       Circ_Buff_Length : constant Integer := 3;
@@ -74,8 +73,7 @@ package body Sampler is
                      Most_Left := Circ_Buff_Fall((Circ_Buff_Index + 1) mod Circ_Buff_Length) + T1 / 2;
                   else
                      -- beginning is between B and C
-                     Most_Left := Circ_Buff_Fall ((Circ_Buff_Index + 2)
-                                             mod Circ_Buff_Length) + T2 / 2;
+                     Most_Left := Circ_Buff_Fall ((Circ_Buff_Index + 2) mod Circ_Buff_Length) + T2 / 2;
                   end if;
 
                   Sampler_Data.Set_Most_Left_Time (Most_Left);

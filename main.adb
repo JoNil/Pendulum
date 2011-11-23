@@ -10,24 +10,27 @@ with Pendulum_Io_Sim; use Pendulum_Io_Sim;
 with Framebuffer;     use Framebuffer;
 with Painter;         use Painter;
 with Color;           use Color;
+with System;          use System;
 
 procedure Main is
-   Left_Time  : Time;
-   Stage      : Integer;
-   Curr_T     : Time := Clock;
+   pragma Priority (Priority'Last - 3);
+   Left_Time   : Time;
+   Stage       : Integer;
+   Curr_T      : Time := Clock;
    Curr_Period : Time_Span;
-   Time_Since : Time_Span;
-   Offset     : constant Time_Span := Milliseconds (300);
+   Time_Since  : Time_Span;
+   Offset      : constant Time_Span := Milliseconds (163);
 begin
 
-   Framebuffer_Data.Clear (1.0);
-   --Framebuffer_Data.Draw_String (0, "Max & Jonathan!", Red, Black);
+   Framebuffer_Data.Clear (Black);
+   Framebuffer_Data.Draw_String (0, "Max&Jonathan", Red, Black);
    Framebuffer_Data.Swap_Buffer;
 
    loop
       Left_Time := Sampler_Data.Get_Most_Left_Time;
 
       Curr_T := Clock;
+
       Curr_Period := Sampler_Data.Get_Period;
 
       Time_Since := Curr_T - Left_Time;

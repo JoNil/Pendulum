@@ -6,5 +6,13 @@ project Pendulum is
    for Source_Dirs use (".", "../win_io");
    for Main use ("main.adb");
 
+   package Builder is
+      for Default_Switches ("ada") use ("-j2");
+   end Builder;
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-O3");
+   end Compiler;
+
 end Pendulum;
 

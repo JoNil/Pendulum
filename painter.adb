@@ -2,9 +2,6 @@ with Pendulum_Io_Sim; use Pendulum_Io_Sim;
 with Low_Level_Types; use Low_Level_Types;
 with Framebuffer;     use Framebuffer;
 with Color;           use Color;
-with Tools; use Tools;
-with Ada.Text_IO;
-
 
 package body Painter is
    task body Painter_Task is
@@ -26,19 +23,7 @@ package body Painter is
             Sweep_Start     := Clock;
             Sweep_Time      := Period / 2 - 2 * (Sweep_Start - Edge_Time);
             Sweep_Direction := Direction;
-            Ada.Text_IO.Put_Line ("------------------_");
-            Ada.Text_IO.Put_Line ("Edge_Time");
-            Print_Time (Edge_Time);
-            Ada.Text_IO.Put_Line ("Now");
-            Print_Time (Clock);
-            if Sweep_Direction = Forward then
-               Ada.Text_IO.Put_Line ("Forward");
-            else
-               Ada.Text_IO.Put_Line ("Backwards");
-            end if;
---            Print_Time( (Period - Sweep_Time)/2 );
          end Begin_Sweep;
-
 
          Sweep_Columne := 0;
          Sweep_End     := Sweep_Start + Sweep_Time;

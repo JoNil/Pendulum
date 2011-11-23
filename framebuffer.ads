@@ -3,10 +3,10 @@ with Color; use Color;
 
 package Framebuffer is
 
-   Number_Of_Columns : constant Integer := 82;
+   Number_Of_Columns : constant Integer := 72;
 
    subtype Row_Type is Integer'Base range 0 .. 7;
-   subtype Column_Type is Integer'Base range 0 .. Number_Of_Columns;
+   subtype Column_Type is Integer'Base range 0 .. Number_Of_Columns - 1;
    type Buffer_Type is array (Row_Type, Column_Type) of Color_Type;
    type Buffer_Selector_Type is mod 2;
 
