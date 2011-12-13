@@ -1,12 +1,10 @@
 pragma Task_Dispatching_Policy (FIFO_Within_Priorities);
 pragma Locking_Policy (Ceiling_Locking);
 
-with Tools;           use Tools;
-with Ada.Text_IO;     use Ada.Text_IO;
 with Ada.Real_Time;   use Ada.Real_Time;
 with Low_Level_Types; use Low_Level_Types;
 with Sampler;         use Sampler;
-with Pendulum_Io_Sim; use Pendulum_Io_Sim;
+with Pendulum_Io; use Pendulum_Io;
 with Framebuffer;     use Framebuffer;
 with Painter;         use Painter;
 with Color;           use Color;
@@ -19,13 +17,13 @@ procedure Main is
    Curr_T            : Time := Clock;
    Curr_Period       : Time_Span;
    Time_Since        : Time_Span;
-   Offset_Percentage : constant Integer := 11; -- 10.0 / 92.0;
+   Offset_Percentage : constant Integer := 14; -- 10.0 / 92.0;
    Offset            : Time_Span := Milliseconds (0);
 
 begin
 
    Framebuffer_Data.Clear (Black);
-   Framebuffer_Data.Draw_String (0, "Max&Jonathan", Red, Black);
+   Framebuffer_Data.Draw_String (0, "It Works! :)", Red, Black);
    Framebuffer_Data.Swap_Buffer;
 
    loop

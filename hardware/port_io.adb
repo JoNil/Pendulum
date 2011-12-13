@@ -41,7 +41,7 @@ package body Port_Io is
            No_Output_Operands,
            (Word'Asm_Input ("a", Data),
             Word'Asm_Input ("d", Port)),
-           "edx", True);
+           "", True);
    end Port_Out;
    pragma Inline (Port_Out);
 
@@ -51,7 +51,7 @@ package body Port_Io is
            No_Output_Operands,
            (Byte'Asm_Input ("a", Data),
             Word'Asm_Input ("d", Port)),
-           "edx", True);
+           "", True);
    end Port_Out;
    pragma Inline (Port_Out);
 
