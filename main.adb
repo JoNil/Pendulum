@@ -7,6 +7,7 @@ with Ada.Real_Time;   use Ada.Real_Time;
 with Low_Level_Types; use Low_Level_Types;
 with Sampler;         use Sampler;
 with Pendulum_Io_Sim; use Pendulum_Io_Sim;
+--with Pendulum_Io; use Pendulum_Io;
 with Framebuffer;     use Framebuffer;
 with Painter;         use Painter;
 with Color;           use Color;
@@ -14,12 +15,14 @@ with System;          use System;
 
 procedure Main is
    pragma Priority (Priority'Last - 3);
-   Left_Time   : Time;
-   Stage       : Integer;
-   Curr_T      : Time := Clock;
-   Curr_Period : Time_Span;
-   Time_Since  : Time_Span;
-   Offset      : constant Time_Span := Milliseconds (163);
+   Left_Time         : Time;
+   Stage             : Integer;
+   Curr_T            : Time := Clock;
+   Curr_Period       : Time_Span;
+   Time_Since        : Time_Span;
+   Offset_Percentage : constant Integer := 11; -- 10.0 / 92.0;
+   Offset            : Time_Span := Milliseconds (0);
+
 begin
 
    Framebuffer_Data.Clear (Black);
@@ -34,6 +37,8 @@ begin
       Curr_Period := Sampler_Data.Get_Period;
 
       Time_Since := Curr_T - Left_Time;
+
+      Offset := Curr_Period / 2 * Offset_Percentage / 100;
 
       if Time_Since < Milliseconds (50) then
          Stage := 1;
