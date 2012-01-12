@@ -1,5 +1,6 @@
 with Pendulum_Io; use Pendulum_Io;
 with System; use System;
+with Tools; use Tools;
 
 package body Sampler is
 

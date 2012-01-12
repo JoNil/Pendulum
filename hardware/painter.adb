@@ -2,8 +2,12 @@ with Pendulum_Io; use Pendulum_Io;
 with Low_Level_Types; use Low_Level_Types;
 with Framebuffer;     use Framebuffer;
 with Color;           use Color;
+with Math;            use Math;
 
 package body Painter is
+
+   type Sweep_Count is range 0 .. Number_Of_Columns;
+
    task body Painter_Task is
       Sweep_Direction : Direction_Type := Forward;
       Sweep_Columne   : Integer := 0;
@@ -52,6 +56,7 @@ package body Painter is
             Set_Leds (Sweep_Byte);
 
             Sweep_Columne := Sweep_Columne + 1;
+	    -- Sweep_Period has to be variable!
             Sweep_Next := Sweep_Next + Sweep_Period;
             delay until Sweep_Next;
          end loop;
