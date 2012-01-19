@@ -86,7 +86,9 @@ package body Framebuffer is
          end loop;
       end Draw_Image;
 
-      procedure Set_Pixel (Row : Integer; Col : Integer; Color : Color_Type) is
+      procedure Set_Pixel (RowIn : Integer; ColIn : Integer; Color : Color_Type) is
+         Row : Integer := RowIn mod Framebuffer_Data.Get_Rows;
+         Col : Integer := ColIn mod Framebuffer_Data.Get_Columns;
       begin
          if Row in Row_Type'Range and Col in Column_Type'Range then
             if Buffer_Selector = 0 then

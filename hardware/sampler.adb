@@ -31,7 +31,7 @@ package body Sampler is
    end Barrier_Sampler;
 
    task body Barrier_Sampler is
-      Barrier_Sampler_Period : constant Time_Span := Milliseconds (1);
+      Barrier_Sampler_Period : constant Time_Span := Microseconds (100);
       Next                   : Time := Clock;
 
       Circ_Buff_Length : constant Integer := 3;
@@ -45,7 +45,7 @@ package body Sampler is
       Curr_Barrier           : Boolean := False;
 
       Full_Round             : Boolean := False;
-      T1, T2, Period               : Time_Span := Milliseconds(0);
+      T1, T2, Period         : Time_Span := Milliseconds (0);
       Most_Left              : Time := Clock;
       currT : Time;
    begin

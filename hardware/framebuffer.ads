@@ -23,7 +23,7 @@ package Framebuffer is
                              Char_Color       : Color_Type;
                              Background_Color : Color_Type);
       procedure Draw_Image (X : Integer; Y : Integer; Img : Image_Type);
-      procedure Set_Pixel (Row : Integer; Col : Integer; Color : Color_Type);
+      procedure Set_Pixel (RowIn : Integer; ColIn : Integer; Color : Color_Type);
       function Get_Pixel (Row : Integer; Col : Integer) return Color_Type;
       function Get_Back_Pixel (Row : Integer; Col : Integer) return Color_Type;
       function Get_Rows return Integer;
